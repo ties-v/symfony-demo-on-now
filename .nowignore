@@ -1,0 +1,7 @@
+vendor
+var
+.git
+tests
+appveyor.yml
+.env*
+

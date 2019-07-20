@@ -26,11 +26,17 @@ class Kernel extends BaseKernel
 
     public function getCacheDir()
     {
+	if (isset($_SERVER['NOW_REGION']) && $_SERVER['NOW_REGION'] !== 'dev1') {
+            return '/tmp/symfony/cache/'.$this->environment;
+        }
         return $this->getProjectDir().'/var/cache/'.$this->environment;
     }
 
     public function getLogDir()
     {
+        if (isset($_SERVER['NOW_REGION']) && $_SERVER['NOW_REGION'] !== 'dev1') {
+            return '/tmp/symfony/log';
+        }
         return $this->getProjectDir().'/var/log';
     }
 
